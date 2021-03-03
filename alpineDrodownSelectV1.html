@@ -27,32 +27,37 @@ vars: open: state of the box
       <div x-data="{ open: false, selected: 'Watzmann'}" x-init="() => { selected=$refs.li1.text }" class="relative"
         x-on:click.away="open=false">
         <button href="#" x-on:click="open == true ? open=false : open = true"
-          class="flex items-center bg-white focus:bg-gray-400 text-gray-700 focus:text-gray-900 font-semibold rounded focus:outline-none focus:shadow-inner py-2 px-4">
+          class="flex items-center px-3 py-2 border border-transparent  leading-4 font-medium rounded-md text-gray-600 bg-white hover:bg-gray-50 hover:text-gray-800 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
           <span x-text="selected" class="mr-1"></span>
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
             style="margin-top:3px">
             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
           </svg>
         </button>
-        <ul x-show="open" x-on:click="open = false; "
-          class="bg-white text-gray-700 rounded shadow-lg absolute py-2 mt-1" style="min-width:15rem">
+        <ul x-show.transition.duration.400ms ="open" x-on:click="open = false; "
+          class="bg-white text-gray-700 rounded shadow-lg absolute py-2 mt-1 "
+          
+           
+          >
           <li>
             <a href="#" x-ref="li1" x-on:click="open=false; selected=$refs.li1.text"
-              class="block hover:bg-gray-200 whitespace-no-wrap py-2 px-4">
+              class="block hover:bg-gray-300 hover:text-gray-700 focus:outline-none focus:bg-gray-500 active:bg-gray-500 transition ease-in-out duration-150 py-2 px-4">
+              
+              
               Zugspitze
           </a>
           </li>
 
           <li>
             <a href="#" x-ref="li2" x-on:click="open=false; selected=$refs.li2.text"
-              class="block hover:bg-gray-200 whitespace-no-wrap py-2 px-4">
+            class="block hover:bg-gray-300 hover:text-gray-700 focus:outline-none focus:bg-gray-500 active:bg-gray-500 transition ease-in-out duration-150 py-2 px-4">
               Watzmann
             </a>
           </li>
 
           <li>
             <a href="#" x-ref="li3" x-on:click="open=false; selected=$refs.li3.text"
-              class="block hover:bg-gray-200 whitespace-no-wrap py-2 px-4">
+            class="block hover:bg-gray-300 hover:text-gray-700 focus:outline-none focus:bg-gray-500 active:bg-gray-500 transition ease-in-out duration-150 py-2 px-4">
               Wilder Kaiser
             </a>
           </li>
