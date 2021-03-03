@@ -26,9 +26,8 @@ vars: open: state of the box
     <div class="bg-gray-300 flex justify-center items-center h-full h-screen p-8">
       <div x-data="{ open: false, selected: 'Watzmann'}" x-init="() => { selected=$refs.li1.text }" class="relative"
         x-on:click.away="open=false">
-        <button x-on:click="open == true ? open=false : open = true"
-          class="flex items-center bg-white focus:bg-gray-400 text-gray-700 focus:text-gray-900 font-semibold rounded focus:outline-none focus:shadow-inner py-2 px-4"
-          type="button">
+        <button href="#" x-on:click="open == true ? open=false : open = true"
+          class="flex items-center bg-white focus:bg-gray-400 text-gray-700 focus:text-gray-900 font-semibold rounded focus:outline-none focus:shadow-inner py-2 px-4">
           <span x-text="selected" class="mr-1"></span>
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
             style="margin-top:3px">
@@ -41,7 +40,7 @@ vars: open: state of the box
             <a href="#" x-ref="li1" x-on:click="open=false; selected=$refs.li1.text"
               class="block hover:bg-gray-200 whitespace-no-wrap py-2 px-4">
               Zugspitze
-            </a>
+          </a>
           </li>
 
           <li>

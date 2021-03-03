@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
    <head>
-    <!--link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.2.0/dist/tailwind.min.css"-->
+    <!-- coding along with Caleb Porzio: Say No To Complexity With AlpineJS  
+        - see youtube video at https://www.youtube.com/watch?v=4c8dpZN0rqM 
+    
+        - the unaoidable counter
+        - playing around with x-bind
+    -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
    </head>
 
@@ -15,46 +20,50 @@
       
         <div class="flex-row-reverse">
             
-            <div class="bg-gray-200 m-5 p-5" x-data="{ count: 0}">
+            <!-- the infamous counter example -->
+            <div class="flex justify-evenly  bg-gray-200 p-5" x-data="{ count: 0}">
                 
-                <button x-on:click="count++">+</button>
-                <button x-on:click="count--">-</button>
+                <button class="bg-blue-500 p-10" x-on:click="count++">+</button>
+                <button class="bg-green-500 p-10" x-on:click="count--">-</button>
             
-                <span class="bg-gray-200 m-5" x-text="count">was immer hier steht wird überschrieben mit count falls cout einen Wert hat</span>
+                <span class="bg-gray-200 p-10" x-text="count">was immer hier steht wird überschrieben mit count falls cout einen Wert hat</span>
             </div>
 
+            <!-- x-bind -->
             <div class="bg-gray-200 m-10 p-10" x-data="{tweet: 'Say something'}">
-                <textarea x-model="tweet">
+                <textarea class="p-4" x-model="tweet">
 
                 </textarea>
 
-                <div x-text="tweet.length" x-bind:class="tweet.length>20 ? 'red' : ''"></div>
+                <div x-text="tweet.length" x-bind:class="tweet.length>20 ? 'red p-4' : 'p-4'"></div>
             </div>
 
+
+            <!-- Datepicker in various versions -->
             <div class="bg-gray-200 m-10 p-10" x-data="{}" x-init="new Pikaday({ field: document.getElementById('datepicker') });">
 
-                <input type="text" id="datepicker" >
+                <input class ="p-4" type="text" id="datepicker" >
 
             </div>
 
-            <!-- mit x-ref -->
+            <!--with x-ref -->
             <div class="bg-gray-200 m-10 p-10" x-data="{}" x-init="new Pikaday({ field: $refs.datepicker2 });">
 
-                <input type="text" x-ref="datepicker2" >
+                <input class ="p-4" type="text" x-ref="datepicker2" >
 
             </div>
 
             <!-- all in one line -->
             <div class="bg-gray-200 m-10 p-10">
 
-                <input  x-data="{}" x-init="new Pikaday({ field: document.getElementById('datepicker3') });" type="text" id="datepicker3" >
+                <input class ="p-4" x-data="{}" x-init="new Pikaday({ field: document.getElementById('datepicker3') });" type="text" id="datepicker3" >
 
             </div>
 
-            <!-- superkurz mit $el-->
+            <!-- extra-short with $el-->
             <div class="bg-gray-200 m-10 p-10">
 
-                <input  type= text x-data x-init="new Pikaday({ field: $el });" >
+                <input  class ="p-4" type= text x-data x-init="new Pikaday({ field: $el });" >
 
             </div>
 
